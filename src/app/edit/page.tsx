@@ -121,12 +121,21 @@ function EditorLogic() {
         "output.mp4",
       ]);
       const data = await ffmpeg.readFile("output.mp4");
-      const dataCopy = new Uint8Array(data);
-      const url = URL.createObjectURL(
-        new Blob([dataCopy], { type: "video/mp4" })
-      );
-      setVideoUrl(url); // Update player with trimmed video
-      setProgressMessage("Trim preview complete!");
+      if (data instanceof Uint8Array) {
+        // This copies the data from a (Shared)ArrayBuffer into a normal one
+        const dataCopy = new Uint8Array(data);
+
+        // Now create the Blob with the copied data
+        const url = URL.createObjectURL(
+          new Blob([dataCopy], { type: "video/mp4" })
+        );
+
+        setVideoUrl(url);
+        setProgressMessage("Trim preview complete!");
+      } else {
+        // This handles the 'string' case, satisfying TypeScript
+        throw new Error("FFmpeg readFile returned unexpected data type.");
+      }
     } catch (error) {
       console.error("Error during trimming:", error);
       setProgressMessage(`Error: ${error}`);
@@ -170,18 +179,28 @@ function EditorLogic() {
         "output.mp4",
       ]);
       const data = await ffmpeg.readFile("output.mp4");
-      const dataCopy = new Uint8Array(data);
-      const url = URL.createObjectURL(
-        new Blob([dataCopy], { type: "video/mp4" })
-      );
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = `${title.replace(/\s+/g, "_") || "clip_export"}.mp4`;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-      setProgressMessage("Export complete!");
+      if (data instanceof Uint8Array) {
+        // This copies the data from a (Shared)ArrayBuffer into a normal one
+        const dataCopy = new Uint8Array(data);
+
+        // Now create the Blob with the copied data
+        const url = URL.createObjectURL(
+          new Blob([dataCopy], { type: "video/mp4" })
+        );
+
+        // This logic is for the EXPORT function
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `${title.replace(/\s+/g, "_") || "clip_export"}.mp4`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        setProgressMessage("Export complete!");
+      } else {
+        // This handles the 'string' case, satisfying TypeScript
+        throw new Error("FFmpeg readFile returned unexpected data type.");
+      }
     } catch (error) {
       console.error("Error during export:", error);
       setProgressMessage(`Error: ${error}`);
