@@ -121,7 +121,10 @@ function EditorLogic() {
         "output.mp4",
       ]);
       const data = await ffmpeg.readFile("output.mp4");
-      const url = URL.createObjectURL(new Blob([data], { type: "video/mp4" }));
+      const dataCopy = new Uint8Array(data);
+      const url = URL.createObjectURL(
+        new Blob([dataCopy], { type: "video/mp4" })
+      );
       setVideoUrl(url); // Update player with trimmed video
       setProgressMessage("Trim preview complete!");
     } catch (error) {
@@ -167,8 +170,10 @@ function EditorLogic() {
         "output.mp4",
       ]);
       const data = await ffmpeg.readFile("output.mp4");
-
-      const url = URL.createObjectURL(new Blob([data], { type: "video/mp4" }));
+      const dataCopy = new Uint8Array(data);
+      const url = URL.createObjectURL(
+        new Blob([dataCopy], { type: "video/mp4" })
+      );
       const a = document.createElement("a");
       a.href = url;
       a.download = `${title.replace(/\s+/g, "_") || "clip_export"}.mp4`;
