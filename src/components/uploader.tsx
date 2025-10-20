@@ -63,7 +63,7 @@ export function Uploader({
         {/* 3. Use the selectedFile prop for the UI */}
         {disabled && selectedFile ? (
           <div className="flex flex-col items-center text-primary">
-            <Loader2 className="h-12 w-12 animate-spin" />
+            <LucideLoader2 className="h-12 w-12 animate-spin" />
             <p className="mt-4 font-semibold">Checking file...</p>
           </div>
         ) : selectedFile ? (
