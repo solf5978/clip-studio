@@ -2,8 +2,6 @@
 "use client"; // This will likely need client-side interactivity later
 import React, { useState, useRef } from "react";
 import { Button } from "../ui/button";
-import { useDrag } from "react-dnd";
-import { ItemTypes } from "../../lib/item-type";
 import {
   UploadCloud,
   FileVideo,
@@ -85,7 +83,7 @@ export function MediaLibrary({ onMediaSelect }: MediaLibraryProps) {
       </div>
 
       <div
-        className={`flex-grow space-y-2 overflow-y-auto p-4 ${
+        className={`grow space-y-2 overflow-y-auto p-4 ${
           dragOver ? "bg-primary/10" : ""
         }`}
       >
@@ -117,7 +115,7 @@ export function MediaLibrary({ onMediaSelect }: MediaLibraryProps) {
                 onClick={() => onMediaSelect(file)} // 4. Call callback on click
               >
                 <FileTypeIcon fileType={file.type} />
-                <span className="flex-grow truncate" title={file.name}>
+                <span className="grow truncate" title={file.name}>
                   {file.name}
                 </span>
                 <span className="shrink-0 text-xs text-muted-foreground">

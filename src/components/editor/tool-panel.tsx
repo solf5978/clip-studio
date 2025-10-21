@@ -237,7 +237,7 @@ export function ToolPanel() {
       </div>
 
       {/* Dynamic Tool Options Area */}
-      <div className="flex-grow overflow-y-auto">
+      <div className="grow overflow-y-auto">
         <h3 className="text-lg font-semibold mb-4 capitalize">
           {capitalize(activeTool)} Options
         </h3>
