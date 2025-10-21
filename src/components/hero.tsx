@@ -145,6 +145,7 @@ const Hero = () => {
               <Uploader
                 selectedFile={selectedFile}
                 onFileChange={handleFileChange}
+                disabled={isLoading}
               />
             </div>
             <div className="bg-gray-900 rounded-xl p-2 shadow-2xl w-1/2 overflow-hidden relative">

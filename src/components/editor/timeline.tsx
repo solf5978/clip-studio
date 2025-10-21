@@ -1,7 +1,7 @@
 // src/components/editor/timeline.tsx
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import { useDrag, useDrop } from "react-dnd";
 import { ItemTypes } from "../../lib/item-type";
 import { VideoIcon, AudioWaveformIcon, MusicIcon } from "lucide-react";
@@ -35,7 +35,8 @@ const TimelineTrack: React.FC<TimelineTrackProps> = ({
   children,
   onMoveClip,
 }) => {
-  const [{ isOver }, dropRef] = useDrop(() => ({
+  const dropRef = useRef<HTMLDivElement>(null);
+  const [{ isOver }, drop] = useDrop(() => ({
     accept: ItemTypes.CLIP,
     drop: (item: { id: string }) => {
       // Corrected this line
@@ -45,6 +46,8 @@ const TimelineTrack: React.FC<TimelineTrackProps> = ({
       isOver: monitor.isOver(),
     }),
   }));
+
+  drop(dropRef);
 
   return (
     <div
@@ -74,13 +77,15 @@ interface TimelineClipProps {
 }
 
 const TimelineClip: React.FC<TimelineClipProps> = ({ clip }) => {
-  const [{ isDragging }, dragRef] = useDrag(() => ({
+  const dragRef = useRef<HTMLDivElement>(null);
+  const [{ isDragging }, drag] = useDrag(() => ({
     type: ItemTypes.CLIP,
     item: { id: clip.id },
     collect: (monitor) => ({
       isDragging: monitor.isDragging(),
     }),
   }));
+  drag(dragRef);
 
   return (
     <div

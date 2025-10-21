@@ -17,7 +17,15 @@ interface TurnstileResponse {
   "error-codes"?: string[];
 }
 
-export async function signInWithEmail(formData: FormData) {
+type AuthFormState =
+  | { error: string; success?: undefined }
+  | { success: string; error?: undefined }
+  | null;
+
+export async function signInWithEmail(
+  prevState: AuthFormState,
+  formData: FormData
+) {
   const email = formData.get("email") as string;
   const token = formData.get("cf-turnstile-response") as string;
 
