@@ -29,7 +29,7 @@ export async function saveVideo(prevState: FormState, formData: FormData) {
   console.log(session);
 
   if (!session?.user?.id) {
-    return { error: "You must be logged in to save a video." };
+    return { error: "You must be logged in to save a video.", success: null };
   }
 
   // Use the new schema
