@@ -102,7 +102,8 @@ export default function VideoFilmstrip({ src }: VideoFilmstripProps) {
         let currentX = 0;
         for (const file of frameFiles) {
           const data = (await ffmpeg.readFile(file.name)) as Uint8Array;
-          const blob = new Blob([data], { type: "image/png" });
+          const dataCopy = new Uint8Array(data);
+          const blob = new Blob([dataCopy], { type: "image/png" });
           const url = URL.createObjectURL(blob);
 
           await drawImageOnCanvas(
