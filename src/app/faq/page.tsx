@@ -3,10 +3,10 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
+} from "../../components/ui/accordion";
 import { faqData } from "../../../public/texts/faq-data";
-import Navbar from "@/components/navbar";
-import { auth } from "@/lib/auth";
+import Navbar from "../../components/navbar";
+import { auth } from "../../lib/auth";
 
 export default async function FaqPage() {
   const session = await auth();

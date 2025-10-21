@@ -1,9 +1,9 @@
 // src/components/editor/media-library.tsx
 "use client"; // This will likely need client-side interactivity later
 import React, { useState, useRef } from "react";
-import { Button } from "@/components/ui/button";
+import { Button } from "../ui/button";
 import { useDrag } from "react-dnd";
-import { ItemTypes } from "@/lib/item-type";
+import { ItemTypes } from "../../lib/item-type";
 import {
   UploadCloud,
   FileVideo,

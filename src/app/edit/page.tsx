@@ -7,20 +7,20 @@ import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
-} from "@/components/ui/resizable";
+} from "../../components/ui/resizable";
 import { fetchFile } from "@ffmpeg/util";
-import { getFFmpeg } from "@/lib/ffmpeg";
+import { getFFmpeg } from "../../lib/ffmpeg";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { v4 as uuidv4 } from "uuid";
-// Import the new editor components
+// Import the new edit../../ components
 
-import { MediaLibrary } from "@/components/editor/media-library";
-import { Timeline, type Clip } from "@/components/editor/timeline";
-import { ToolPanel } from "@/components/editor/tool-panel";
-import { EditorHeader } from "@/components/editor/editor-header";
-import VideoInfoSheet from "@/components/editor/video-in-sheet";
-import VideoPlayer from "@/components/editor/video-player";
+import { MediaLibrary } from "../../components/editor/media-library";
+import { Timeline, type Clip } from "../../components/editor/timeline";
+import { ToolPanel } from "../../components/editor/tool-panel";
+import { EditorHeader } from "../../components/editor/editor-header";
+import VideoInfoSheet from "../../components/editor/video-in-sheet";
+import VideoPlayer from "../../components/editor/video-player";
 
 function EditorLogic() {
   const searchParams = useSearchParams();

@@ -1,7 +1,7 @@
 // src/app/edit/editor-actions.tsx
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "../../components/ui/button";
 import { LucideSave, LucideDownload, LucideScissors } from "lucide-react";
 import { useFormStatus } from "react-dom";
 

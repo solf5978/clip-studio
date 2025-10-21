@@ -1,6 +1,9 @@
 // src/components/auth-buttons.tsx
-import { signInWithGoogle, signOutAction } from "@/app/actions/auth-actions";
-import { Button } from "@/components/ui/button";
+import {
+  signInWithGoogle,
+  signOutAction,
+} from "../../app/actions/auth-actions";
+import { Button } from "../ui/button";
 
 export function AuthButtons() {
   return (

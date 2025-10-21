@@ -1,7 +1,7 @@
 // src/app/actions/auth-actions.ts
 "use server";
 
-import { signIn, signOut } from "@/lib/auth";
+import { signIn, signOut } from "../../lib/auth";
 
 export async function signInWithGoogle() {
   await signIn("google");

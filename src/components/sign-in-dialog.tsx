@@ -10,7 +10,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "./ui/dialog";
-import { signInWithGoogle, signInWithEmail } from "@/app/actions/auth-actions";
+import { signInWithGoogle, signInWithEmail } from "../app/actions/auth-actions";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Turnstile } from "@marsidev/react-turnstile";

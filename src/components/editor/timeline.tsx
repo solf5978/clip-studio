@@ -3,9 +3,9 @@
 
 import React from "react";
 import { useDrag, useDrop } from "react-dnd";
-import { ItemTypes } from "@/lib/item-type";
+import { ItemTypes } from "../../lib/item-type";
 import { VideoIcon, AudioWaveformIcon, MusicIcon } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
 import VideoFilmstrip from "./video-films-trip";
 
 // ## 1. Export Clip Type

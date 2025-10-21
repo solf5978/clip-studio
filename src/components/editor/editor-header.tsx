@@ -2,11 +2,11 @@
 "use client";
 
 import { useActionState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Button } from "../ui/button";
+import { Input } from "../ui/input";
 import { LucideSave, LucideDownload, LucideScissors } from "lucide-react";
 import { useFormStatus } from "react-dom";
-import { saveVideo, type FormState } from "@/app/actions"; // Import save action
+import { saveVideo, type FormState } from "../../app/actions"; // Import save action
 
 // --- Local Helper Components ---
 function SubmitButton() {

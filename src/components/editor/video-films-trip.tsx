@@ -2,9 +2,9 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { getFFmpeg } from "@/lib/ffmpeg";
+import { getFFmpeg } from "../../lib/ffmpeg";
 import { fetchFile } from "@ffmpeg/util";
-import { Skeleton } from "@/components/ui/skeleton";
+import { Skeleton } from "../ui/skeleton";
 
 // Helper function to draw an image onto a canvas
 async function drawImageOnCanvas(
